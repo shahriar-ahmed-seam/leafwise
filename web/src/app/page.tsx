@@ -174,6 +174,17 @@ export default function LandingPage() {
                 happens on a photo taken in a field — so both are measured and published, on{" "}
                 {inDist?.images ?? 0} and {cross?.images ?? 0} images respectively.
               </p>
+              {inDist?.exactTop1 && cross?.exactTop1 ? (
+                <p className="mt-3 rounded-2xl border border-clay-500/30 bg-clay-100 p-4 text-[13px] leading-relaxed text-clay-700">
+                  <strong className="font-semibold">
+                    {inDist.exactTop1}% becomes {cross.exactTop1}%.
+                  </strong>{" "}
+                  Same model, same code — the only change is that the leaves were photographed in a field
+                  instead of on a bench. It still names the right crop {cross.cropTop1}% of the time, and the
+                  mistakes are systematic rather than random. That is why this app flags low confidence and shows
+                  you the runner-up instead of pretending to be certain.
+                </p>
+              ) : null}
             </div>
 
             <div className="mt-8 grid gap-4 lg:grid-cols-2">
@@ -224,9 +235,11 @@ export default function LandingPage() {
                 ) : null,
               )}
             </div>
-            <p className="mt-4 text-[11.5px] text-ink-300">
+            <p className="mt-4 text-[11.5px] leading-relaxed text-ink-300">
               {bench.host} · generated {bench.generatedAt} by <code className="num">tools/evaluate.py</code>, which
-              writes the JSON this page renders. Nothing here is typed by hand.
+              writes the JSON this page renders — nothing here is typed by hand. The sampled PlantDoc shard is
+              tomato-dominated, so read the cross-dataset row as a tomato-weighted estimate rather than a balanced
+              38-class score.
             </p>
           </div>
         </section>

@@ -51,10 +51,20 @@ website reads, so the published numbers cannot drift from the measured ones.
 | Suite | Dataset | Images | Top-1 | Top-3 | Crop only | Latency |
 | --- | --- | --- | --- | --- | --- | --- |
 | In-distribution | PlantVillage (held-out test split) | 200 | **94.0%** | 99.5% | 97.9% | 5.9 ms |
-| Cross-dataset | PlantDoc (field photography) | 200 | see site | see site | see site | ~6 ms |
+| Cross-dataset | PlantDoc (field photography) | 200 | **18.5%** | 38.5% | 52.0% | 11.9 ms |
 
-The gap between those two rows is the whole point. PlantVillage is studio-clean; PlantDoc is
-what a phone actually sees. Quoting only the first number would be marketing, not engineering.
+**That gap is the most important number in this repository.** 94% becomes 18.5% when the same
+model sees leaves photographed in a real field instead of on a lab bench. It still gets the
+crop right about half the time, and the confusions are systematic rather than random — TYLCV
+curl gets read as late blight, bacterial spot as grape black rot. A model trained on studio
+images has learned studio images.
+
+That is why the app flags anything under 45% as low-confidence, shows the second and third
+guesses, and tells you to re-shoot instead of presenting a single answer. Closing this gap
+needs fine-tuning on field imagery, which is the next piece of work, not a caption.
+
+Caveat on the cross-dataset row: the sampled PlantDoc shard is tomato-dominated, so treat
+18.5% as a tomato-weighted estimate rather than a balanced 38-class score.
 
 Most common in-distribution confusions, straight from the harness:
 

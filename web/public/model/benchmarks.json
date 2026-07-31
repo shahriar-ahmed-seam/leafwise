@@ -3,7 +3,7 @@
   "architecture": "MobileNetV2 1.0 224",
   "classCount": 38,
   "sizeMb": 9.25,
-  "host": "ONNX Runtime CPU, 2 threads",
+  "host": "ONNX Runtime CPU, 2 threads, Intel i5-11400H",
   "generatedAt": "2026-08-01",
   "suites": [
     {
@@ -12,7 +12,44 @@
     },
     {
       "key": "cross_dataset",
-      "error": "HTTPError: HTTP Error 401: Unauthorized"
+      "title": "PlantDoc \u00b7 field photos",
+      "kind": "Cross-dataset",
+      "dataset": "LamTNguyen/PlantDoc_processed",
+      "split": "train",
+      "note": "Leaves photographed in the field by other people, with clutter and uneven light. Predicts real-world behaviour.",
+      "images": 200,
+      "skipped": 0,
+      "exactTop1": 18.5,
+      "exactTop3": 38.5,
+      "cropTop1": 52.0,
+      "conditionTop1": 18.5,
+      "latencyMeanMs": 11.9,
+      "latencyP95Ms": 18.2,
+      "perCrop": {
+        "tomato": 52.0
+      },
+      "topConfusions": [
+        {
+          "truth": "tomato/yellowleafcurlvirus",
+          "count": 77,
+          "predicted": "tomato/lateblight"
+        },
+        {
+          "truth": "tomato/bacterialspot",
+          "count": 29,
+          "predicted": "grape/blackrot"
+        },
+        {
+          "truth": "tomato/lateblight",
+          "count": 22,
+          "predicted": "tomato/earlyblight"
+        },
+        {
+          "truth": "tomato/leafmold",
+          "count": 19,
+          "predicted": "squash/powderymildew"
+        }
+      ]
     }
   ]
 }
