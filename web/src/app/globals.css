@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: #fbfaf7;
+  color: #14181a;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  ::selection {
+    background: rgba(47, 158, 100, 0.25);
+  }
+  *:focus-visible {
+    outline: 2px solid #258454;
+    outline-offset: 2px;
+  }
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.021em;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-bone-200 bg-white shadow-card;
+  }
+  .label {
+    @apply text-[10.5px] font-semibold uppercase tracking-[0.13em] text-ink-300;
+  }
+  .num {
+    @apply font-mono tabular-nums;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-bone-300 bg-white px-4 py-2.5 text-[13.5px] font-medium text-ink-900 transition hover:border-ink-300 hover:bg-bone-50 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  .btn-primary {
+    @apply border-leaf-600 bg-leaf-600 text-white hover:border-leaf-700 hover:bg-leaf-700;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-bone-200 bg-white px-2.5 py-1 text-[11.5px] text-ink-700;
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(20, 24, 26, 0.2) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(20, 24, 26, 0.18);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "model": "linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification",
+  "architecture": "MobileNetV2 1.0 224",
+  "inputSize": 224,
+  "inputLayout": "NCHW float32 RGB 0-255 (normalisation folded into the graph)",
+  "output": "softmax probabilities",
+  "classCount": 38,
+  "crops": [
+    "Apple",
+    "Bell Pepper",
+    "Blueberry",
+    "Cherry",
+    "Corn (Maize)",
+    "Grape",
+    "Orange",
+    "Peach",
+    "Potato",
+    "Raspberry",
+    "Soybean",
+    "Squash",
+    "Strawberry",
+    "Tomato"
+  ],
+  "sizeMb": 9.25,
+  "onnxDrift": 1.564621925354004e-07,
+  "classes": [
+    {
+      "raw": "Apple Scab",
+      "crop": "Apple",
+      "condition": "Scab",
+      "healthy": false,
+      "label": "Apple \u00b7 Scab"
+    },
+    {
+      "raw": "Apple with Black Rot",
+      "crop": "Apple",
+      "condition": "Black Rot",
+      "healthy": false,
+      "label": "Apple \u00b7 Black Rot"
+    },
+    {
+      "raw": "Cedar Apple Rust",
+      "crop": "Apple",
+      "condition": "Cedar  Rust",
+      "healthy": false,
+      "label": "Apple \u00b7 Cedar  Rust"
+    },
+    {
+      "raw": "Healthy Apple",
+      "crop": "Apple",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Apple \u00b7 Healthy"
+    },
+    {
+      "raw": "Healthy Blueberry Plant",
+      "crop": "Blueberry",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Blueberry \u00b7 Healthy"
+    },
+    {
+      "raw": "Cherry with Powdery Mildew",
+      "crop": "Cherry",
+      "condition": "Powdery Mildew",
+      "healthy": false,
+      "label": "Cherry \u00b7 Powdery Mildew"
+    },
+    {
+      "raw": "Healthy Cherry Plant",
+      "crop": "Cherry",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Cherry \u00b7 Healthy"
+    },
+    {
+      "raw": "Corn (Maize) with Cercospora and Gray Leaf Spot",
+      "crop": "Corn (Maize)",
+      "condition": "Cercospora and Gray Leaf Spot",
+      "healthy": false,
+      "label": "Corn (Maize) \u00b7 Cercospora and Gray Leaf Spot"
+    },
+    {
+      "raw": "Corn (Maize) with Common Rust",
+      "crop": "Corn (Maize)",
+      "condition": "Common Rust",
+      "healthy": false,
+      "label": "Corn (Maize) \u00b7 Common Rust"
+    },
+    {
+      "raw": "Corn (Maize) with Northern Leaf Blight",
+      "crop": "Corn (Maize)",
+      "condition": "Northern Leaf Blight",
+      "healthy": false,
+      "label": "Corn (Maize) \u00b7 Northern Leaf Blight"
+    },
+    {
+      "raw": "Healthy Corn (Maize) Plant",
+      "crop": "Corn (Maize)",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Corn (Maize) \u00b7 Healthy"
+    },
+    {
+      "raw": "Grape with Black Rot",
+      "crop": "Grape",
+      "condition": "Black Rot",
+      "healthy": false,
+      "label": "Grape \u00b7 Black Rot"
+    },
+    {
+      "raw": "Grape with Esca (Black Measles)",
+      "crop": "Grape",
+      "condition": "Esca (Black Measles)",
+      "healthy": false,
+      "label": "Grape \u00b7 Esca (Black Measles)"
+    },
+    {
+      "raw": "Grape with Isariopsis Leaf Spot",
+      "crop": "Grape",
+      "condition": "Isariopsis Leaf Spot",
+      "healthy": false,
+      "label": "Grape \u00b7 Isariopsis Leaf Spot"
+    },
+    {
+      "raw": "Healthy Grape Plant",
+      "crop": "Grape",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Grape \u00b7 Healthy"
+    },
+    {
+      "raw": "Orange with Citrus Greening",
+      "crop": "Orange",
+      "condition": "Citrus Greening",
+      "healthy": false,
+      "label": "Orange \u00b7 Citrus Greening"
+    },
+    {
+      "raw": "Peach with Bacterial Spot",
+      "crop": "Peach",
+      "condition": "Bacterial Spot",
+      "healthy": false,
+      "label": "Peach \u00b7 Bacterial Spot"
+    },
+    {
+      "raw": "Healthy Peach Plant",
+      "crop": "Peach",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Peach \u00b7 Healthy"
+    },
+    {
+      "raw": "Bell Pepper with Bacterial Spot",
+      "crop": "Bell Pepper",
+      "condition": "Bacterial Spot",
+      "healthy": false,
+      "label": "Bell Pepper \u00b7 Bacterial Spot"
+    },
+    {
+      "raw": "Healthy Bell Pepper Plant",
+      "crop": "Bell Pepper",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Bell Pepper \u00b7 Healthy"
+    },
+    {
+      "raw": "Potato with Early Blight",
+      "crop": "Potato",
+      "condition": "Early Blight",
+      "healthy": false,
+      "label": "Potato \u00b7 Early Blight"
+    },
+    {
+      "raw": "Potato with Late Blight",
+      "crop": "Potato",
+      "condition": "Late Blight",
+      "healthy": false,
+      "label": "Potato \u00b7 Late Blight"
+    },
+    {
+      "raw": "Healthy Potato Plant",
+      "crop": "Potato",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Potato \u00b7 Healthy"
+    },
+    {
+      "raw": "Healthy Raspberry Plant",
+      "crop": "Raspberry",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Raspberry \u00b7 Healthy"
+    },
+    {
+      "raw": "Healthy Soybean Plant",
+      "crop": "Soybean",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Soybean \u00b7 Healthy"
+    },
+    {
+      "raw": "Squash with Powdery Mildew",
+      "crop": "Squash",
+      "condition": "Powdery Mildew",
+      "healthy": false,
+      "label": "Squash \u00b7 Powdery Mildew"
+    },
+    {
+      "raw": "Strawberry with Leaf Scorch",
+      "crop": "Strawberry",
+      "condition": "Leaf Scorch",
+      "healthy": false,
+      "label": "Strawberry \u00b7 Leaf Scorch"
+    },
+    {
+      "raw": "Healthy Strawberry Plant",
+      "crop": "Strawberry",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Strawberry \u00b7 Healthy"
+    },
+    {
+      "raw": "Tomato with Bacterial Spot",
+      "crop": "Tomato",
+      "condition": "Bacterial Spot",
+      "healthy": false,
+      "label": "Tomato \u00b7 Bacterial Spot"
+    },
+    {
+      "raw": "Tomato with Early Blight",
+      "crop": "Tomato",
+      "condition": "Early Blight",
+      "healthy": false,
+      "label": "Tomato \u00b7 Early Blight"
+    },
+    {
+      "raw": "Tomato with Late Blight",
+      "crop": "Tomato",
+      "condition": "Late Blight",
+      "healthy": false,
+      "label": "Tomato \u00b7 Late Blight"
+    },
+    {
+      "raw": "Tomato with Leaf Mold",
+      "crop": "Tomato",
+      "condition": "Leaf Mold",
+      "healthy": false,
+      "label": "Tomato \u00b7 Leaf Mold"
+    },
+    {
+      "raw": "Tomato with Septoria Leaf Spot",
+      "crop": "Tomato",
+      "condition": "Septoria Leaf Spot",
+      "healthy": false,
+      "label": "Tomato \u00b7 Septoria Leaf Spot"
+    },
+    {
+      "raw": "Tomato with Spider Mites or Two-spotted Spider Mite",
+      "crop": "Tomato",
+      "condition": "Spider Mites or Two-spotted Spider Mite",
+      "healthy": false,
+      "label": "Tomato \u00b7 Spider Mites or Two-spotted Spider Mite"
+    },
+    {
+      "raw": "Tomato with Target Spot",
+      "crop": "Tomato",
+      "condition": "Target Spot",
+      "healthy": false,
+      "label": "Tomato \u00b7 Target Spot"
+    },
+    {
+      "raw": "Tomato Yellow Leaf Curl Virus",
+      "crop": "Tomato",
+      "condition": "Yellow Leaf Curl Virus",
+      "healthy": false,
+      "label": "Tomato \u00b7 Yellow Leaf Curl Virus"
+    },
+    {
+      "raw": "Tomato Mosaic Virus",
+      "crop": "Tomato",
+      "condition": "Mosaic Virus",
+      "healthy": false,
+      "label": "Tomato \u00b7 Mosaic Virus"
+    },
+    {
+      "raw": "Healthy Tomato Plant",
+      "crop": "Tomato",
+      "condition": "Healthy",
+      "healthy": true,
+      "label": "Tomato \u00b7 Healthy"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "model": "linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification",
+  "architecture": "MobileNetV2 1.0 224",
+  "classCount": 38,
+  "sizeMb": 9.25,
+  "host": "ONNX Runtime CPU, 2 threads",
+  "generatedAt": "2026-08-01",
+  "suites": [
+    {
+      "key": "in_distribution",
+      "error": "no usable rows"
+    },
+    {
+      "key": "cross_dataset",
+      "error": "HTTPError: HTTP Error 401: Unauthorized"
+    }
+  ]
+}

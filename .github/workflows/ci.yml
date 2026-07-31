@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: App · lint, types, build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+
+      - name: Assert the model actually ships
+        run: |
+          test -f public/model/leafwise.onnx
+          test -f public/model/labels.json
+          test -f public/model/benchmarks.json
+          python3 - <<'PY'
+          import json, pathlib
+          meta = json.loads(pathlib.Path("public/model/labels.json").read_text())
+          bench = json.loads(pathlib.Path("public/model/benchmarks.json").read_text())
+          assert meta["classCount"] == len(meta["classes"]), "label map is inconsistent"
+          assert meta["onnxDrift"] < 1e-4, f"torch/onnx drift too high: {meta['onnxDrift']}"
+          suites = {s["key"]: s for s in bench["suites"]}
+          assert "in_distribution" in suites, "missing in-distribution benchmark"
+          print("model:", meta["architecture"], meta["classCount"], "classes")
+          for key, suite in suites.items():
+              print(key, suite.get("exactTop1"), "% top-1 on", suite.get("images"), "images")
+          PY
+
+      - name: Assert the ONNX runtime was staged for offline use
+        run: |
+          ls public/ort | head -n 5
+          test "$(ls public/ort/*.wasm | wc -l)" -ge 1
+
+  tools:
+    name: Export tooling · lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install ruff==0.8.6
+      - run: ruff check tools
+      - run: ruff format --check tools
