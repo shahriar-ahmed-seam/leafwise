@@ -53,7 +53,10 @@ SUITES = [
         "dataset": "LamTNguyen/PlantDoc_processed",
         "split": "train",
         "kind": "Cross-dataset",
-        "note": "Leaves photographed in the field by other people, with clutter and uneven light. Predicts real-world behaviour.",
+        "note": (
+            "Leaves photographed in the field by other people, with clutter and uneven light. "
+            "Predicts real-world behaviour."
+        ),
     },
 ]
 
@@ -163,7 +166,7 @@ def evaluate(suite: dict, sess: ort.InferenceSession, classes: list[dict], budge
 
     try:
         files = parquet_files(suite["dataset"], suite["split"])
-    except Exception as exc:  # noqa: BLE001
+    except Exception as exc:
         return {"key": suite["key"], "error": f"{type(exc).__name__}: {exc}"}
 
     seen = exact = top3 = crop_hits = crop_total = cond_hits = cond_total = skipped = 0
@@ -190,7 +193,7 @@ def evaluate(suite: dict, sess: ort.InferenceSession, classes: list[dict], budge
             try:
                 info = json.loads(meta[b"huggingface"].decode())
                 feature = info["info"]["features"][label_col]
-                label_names = feature.get("names") or feature.get("_type") and feature.get("names")
+                label_names = feature.get("names") or (feature.get("_type") and feature.get("names"))
             except (KeyError, json.JSONDecodeError):
                 label_names = None
 
